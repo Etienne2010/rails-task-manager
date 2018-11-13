@@ -1,0 +1,15 @@
+<ul>
+<% @tasks.each do |tk| %>
+  <li>
+    <% if tk.completed %>
+      <input type="checkbox" checked="true">
+    <% else %>
+      <input type="checkbox">
+    <% end %>
+    <%= link_to tk.title, task_path(tk) %>
+    <%= link_to "Delete", tasksdel_path(tk),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+  </li>
+<% end %>
+</ul>
